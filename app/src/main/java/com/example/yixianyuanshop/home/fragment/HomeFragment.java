@@ -46,7 +46,7 @@ public class HomeFragment extends BaseFragment {
     public void initData(){
         super.initData();
         System.out.println("sdfsdf");
-        String url = "http://www.csdn.net/";
+        String url = "https://www.csdn.net/";
         OkHttpUtils
                 .get()
                 .url(url)
