@@ -23,6 +23,7 @@ import static android.content.ContentValues.TAG;
 
 public class HomeFragment extends BaseFragment {
     //测试github提交
+    //github很好用
 
     private static final String TAG =
             HomeFragment.class.getSimpleName();
