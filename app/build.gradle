@@ -42,6 +42,7 @@ dependencies {
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.alibaba:fastjson:1.1.54.android'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
+    compile 'com.alibaba:fastjson:1.1.72.android'
 
 
 
