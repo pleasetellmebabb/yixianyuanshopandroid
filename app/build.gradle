@@ -39,10 +39,12 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    compile 'com.zhy:okhttputils:2.6.2'
-    compile 'com.alibaba:fastjson:1.1.54.android'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.alibaba:fastjson:1.1.54.android'
     implementation 'com.squareup.okhttp3:okhttp:4.8.1'
-    compile 'com.alibaba:fastjson:1.1.72.android'
+    implementation 'com.alibaba:fastjson:1.1.72.android'
+
+    implementation 'com.youth.banner:banner:2.1.0'
 
 
 

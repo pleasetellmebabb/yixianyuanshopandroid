@@ -11,8 +11,11 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.alibaba.fastjson.JSON;
 import com.example.yixianyuanshop.R;
 import com.example.yixianyuanshop.base.BaseFragment;
+import com.example.yixianyuanshop.home.adapter.HomeFragmentAdapter;
+import com.example.yixianyuanshop.home.bean.ResultBeanData;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -31,6 +34,23 @@ public class HomeFragment extends BaseFragment {
     private ImageView ib_top;
     private TextView tv_search_home;
     private TextView tv_message_home;
+    private ResultBeanData.DataBean databean;
+    private HomeFragmentAdapter homeadapter;
+
+
+    private void procesData(String json){
+        ResultBeanData result= JSON.parseObject(json,ResultBeanData.class);
+        if(result!=null){
+            //有数据设置适配器
+            homeadapter=new HomeFragmentAdapter(context,result);
+            rvHome.setAdapter(homeadapter);
+
+        }else{
+            //没有数据  不设置
+        }
+         databean= result.getData();
+         System.out.println( "图片地址是"+databean.getBanner().get(0).getPic());
+    }
     @Override
     public View initView() {
         View view=View.inflate(context, R.layout.main_home,null);
@@ -48,7 +68,7 @@ public class HomeFragment extends BaseFragment {
     public void initData(){
         super.initData();
         System.out.println("sdfsdf");
-        String url = "https://www.csdn.net/";
+        String url = "https://shop.tczxkj.com/api/index";
         OkHttpUtils
                 .get()
                 .url(url)
@@ -66,7 +86,7 @@ public class HomeFragment extends BaseFragment {
                     @Override
                     public void onResponse(String response, int id) {
                         System.out.println("请求成功"+id);
-                        System.out.println(response);
+                        procesData(response);
                     }
 
 
