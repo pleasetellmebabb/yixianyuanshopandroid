@@ -18,6 +18,7 @@ import com.example.yixianyuanshop.community.fragment.CommunityFragment;
 import com.example.yixianyuanshop.home.fragment.HomeFragment;
 import com.example.yixianyuanshop.type.fragment.TypeFragment;
 import com.example.yixianyuanshop.user.fragment.UserFragment;
+import com.youth.banner.Banner;
 
 import java.util.ArrayList;
 
@@ -37,6 +38,7 @@ private Fragment tempFragemnt;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //设置默认选中
+
 
 
         //存储所有  framget

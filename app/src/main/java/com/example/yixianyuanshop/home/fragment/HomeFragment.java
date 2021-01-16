@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alibaba.fastjson.JSON;
@@ -39,17 +40,21 @@ public class HomeFragment extends BaseFragment {
 
 
     private void procesData(String json){
-        ResultBeanData result= JSON.parseObject(json,ResultBeanData.class);
-        if(result!=null){
+        ResultBeanData resultBean= JSON.parseObject(json,ResultBeanData.class);
+        databean=resultBean.getData();
+        if(databean!=null){
             //有数据设置适配器
-            homeadapter=new HomeFragmentAdapter(context,result);
+            homeadapter=new HomeFragmentAdapter(context,databean);
             rvHome.setAdapter(homeadapter);
+            //设置布局管理者
+            System.out.println(databean);
+            rvHome.setLayoutManager(new GridLayoutManager(context,1));
 
         }else{
             //没有数据  不设置
         }
-         databean= result.getData();
-         System.out.println( "图片地址是"+databean.getBanner().get(0).getPic());
+      /*   databean= databean.getBanner();
+         System.out.println( "图片地址是"+databean.getBanner().get(0).getPic());*/
     }
     @Override
     public View initView() {
@@ -86,6 +91,7 @@ public class HomeFragment extends BaseFragment {
                     @Override
                     public void onResponse(String response, int id) {
                         System.out.println("请求成功"+id);
+                        System.out.println(response);
                         procesData(response);
                     }
 
